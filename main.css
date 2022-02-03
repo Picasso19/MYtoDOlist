@@ -1,0 +1,269 @@
+    body {
+        background-color: rgb(23, 125, 223);
+        color: rgb(248, 252, 252);
+        font-size: 2rem;
+        font-family: 'Work Sans', sans-serif;
+        display: grid;
+        grid: "header header header header header" auto "...... AllCatList ...... activeTlist ...... " auto / 1fr minmax(100px, 300px) 0.5fr minmax(250px, 500px) 1fr;
+    }
+    
+    .myHeader {
+        grid-area: header;
+        text-align: center;
+        font-weight: 1000;
+        font-size: 100px;
+        color: rgba(0, 0, 0, 0.2);
+        letter-spacing: 20px;
+        margin-top: 15px;
+    }
+    
+    .AllCategoryList {
+        grid-area: AllCatList;
+    }
+    /* The ul of all the titles of different lists */
+    
+    .categoryList {
+        padding-left: 1em;
+        font-size: 1.5rem;
+        line-height: 1.7;
+        font-weight: 100;
+        list-style-type: circle;
+        transition: 1000ms ease-in;
+    }
+    
+    .categoryList li:hover {
+        cursor: pointer;
+        letter-spacing: 1.2px;
+        opacity: 0.7;
+    }
+    /* The list that is opened currently */
+    
+    .activeList {
+        font-weight: 900;
+        text-decoration: underline;
+    }
+    /* Form has btn and input */
+    
+    .inputForm {
+        display: flex;
+        align-items: center;
+        height: 80px;
+    }
+    /* Align Specific InputForm and the bts */
+    
+    .newTask .inputForm {
+        padding-left: var(--spacer);
+    }
+    /* all the btns */
+    
+    .btn {
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        font-size: inherit;
+        color: inherit;
+        padding: 0;
+    }
+    /* btn with the input form  */
+    
+    .inputForm .btn {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-right: 1px;
+        transition: 150ms ease-in;
+    }
+    
+    .inputForm .btn:hover {
+        /* font-size: 3rem; */
+        opacity: 0.5;
+    }
+    /* This div is part of the taskListbody and contains the delete bts */
+    
+    .deleteTasks {
+        display: flex;
+        /* align-items: center; */
+        justify-content: space-evenly;
+        /* margin: 30px 10px 30px 10px; */
+        width: 100%;
+        position: absolute;
+        bottom: -50px;
+    }
+    /* btns to delete stuff */
+    
+    .btn.delete {
+        font-size: 1.2rem;
+        color: white;
+        transition: 300ms ease-in-out;
+    }
+    
+    .btn.delete:hover {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: rgb(36, 36, 35);
+    }
+    /* The input space where we enter a new task or list name */
+    
+    .newInput {
+        border: 0;
+        color: inherit;
+        background: transparent;
+        border-bottom: 3px solid currentColor;
+        outline: none;
+        font-size: 1.7rem;
+        padding: 5px;
+        order: 2;
+        transition: border-bottom 150ms ease-in-out;
+        transition: width 200ms ease-in-out;
+        width: 75%;
+    }
+    
+    .newInput::placeholder {
+        color: inherit;
+        opacity: 0.5;
+    }
+    
+    .newInput:focus {
+        border-bottom: 5px solid currentColor;
+        width: 80%;
+    }
+    
+    .newInput:focus::placeholder {
+        opacity: 0.2;
+    }
+    
+    .newInput:hover {
+        font-size: 1.8rem;
+    }
+    /* The tasks in the active list that are currently being show */
+    
+    .taskList {
+        --spacer: 2rem;
+        grid-area: activeTlist;
+        background-color: whitesmoke;
+        color: rgb(82, 82, 80);
+        /* padding: 10px 50px; */
+        position: relative;
+    }
+    /* Header Contains the List Title and the no. of tasks left */
+    
+    .taskListHeader {
+        padding: var(--spacer);
+        background-color: #e4e4e4;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    /* Body contains the ul of all the tasks in that list */
+    
+    .taskListBody {
+        padding: var(--spacer);
+        padding-bottom: 0;
+    }
+    /* Category Title is the name of the list */
+    
+    .categoryTitle {
+        color: rgb(61, 61, 60);
+        margin: 0 1rem 0 0;
+    }
+    
+    .taskCount {
+        margin: 0;
+        font-size: 1rem;
+    }
+    /* Making of the custom checkbox */
+    /* We are making the checkboxes invisible and out of the flow of the page  */
+    
+    [type="checkbox"] {
+        opacity: 0;
+        position: absolute;
+    }
+    /* Turning the  empty spans into circles */
+    
+    .customCheckbox {
+        --size: 0.5em;
+        display: inline-block;
+        border: 3px solid currentColor;
+        height: var(--size);
+        width: var(--size);
+        cursor: pointer;
+        border-radius: 50%;
+        margin-right: var(--size);
+        transform: scale(1);
+        transition: 150ms ease-in-out;
+    }
+    /* .customCheckbox:hover {
+    --size : 0.65em;
+    border-width: 5px;
+} */
+    /* The task itself */
+    
+    .task label {
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+    }
+    /* When we hover a label we want the check box to become bigger */
+    
+    .task label:hover .customCheckbox
+    /* ,[type = "checkbox"]:focus + label .customCheckbox */
+    
+    {
+        transform: scale(1.2);
+        color: rgb(23, 125, 223);
+    }
+    /* When the checkbox is checked */
+    
+    [type="checkbox"]:checked+label .customCheckbox {
+        background-color: rgb(23, 125, 223);
+        border-color: rgb(23, 125, 223);
+        /* Kind of like creating a secondary border but inside */
+        box-shadow: inset 0 0 0 3px white;
+    }
+    
+    [type="checkbox"]:checked+label {
+        opacity: 0.7;
+    }
+    /* When we hover the label */
+    
+    .task label:hover {
+        /* font-size: 110% */
+        cursor: pointer;
+    }
+    
+    .task {
+        position: relative;
+        margin-bottom: 1.25em;
+    }
+    /* The underlines below the tasks */
+    
+    .task::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: -0.7em;
+        height: 2px;
+        background-color: currentColor;
+        opacity: 0.2;
+    }
+    /* Adding the strike */
+    
+    .task label::after {
+        content: "";
+        position: absolute;
+        right: -0.2em;
+        left: 1.2em;
+        /* bottom: -0.5em; */
+        height: 3px;
+        background-color: currentColor;
+        /* opacity: 0.2; */
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 150ms ease-in-out;
+    }
+    /* When the checkbox is checked add the strike */
+    
+    [type="checkbox"]:checked+label::after {
+        transform-origin: left;
+        transform: scaleX(1);
+    }

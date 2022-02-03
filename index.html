@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYyoDOlist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <script src="script.js" defer></script>
+
+</head>
+
+<body>
+    <h1 class="myHeader">MY to DO list</h1>
+
+    <div class="AllCategoryList">
+        <h2 class="categoryListTitle">My Lists</h2>
+        <!-- ALL THE DIFFERENT LISTS -->
+        <ul class="categoryList" data-lists>
+        </ul>
+
+        <!-- Form to add a new list  -->
+        <form action="" class="inputForm" data-new-list-form>
+            <input type="text" class="newList newInput" placeholder="New List Name" aria-label="New List Name" data-new-list-input>
+            <button class="btn newList" aria-label="Create New List">+</button>
+        </form>
+    </div>
+    <!-- TASKS OF THE SELECTED LIST -->
+    <div class="taskList" data-list-display-container>
+        <div class="taskListHeader">
+            <h2 class="categoryTitle" data-list-title></h2>
+            <p class="taskCount" data-list-count></p>
+        </div>
+
+        <div class="taskListBody">
+            <div class="tasks" data-tasks>
+
+            </div>
+        </div>
+        <div class="newTask">
+            <form action="" class="inputForm" data-new-task-form>
+                <input type="text" data-new-task-input class="newTaskAdder newInput" placeholder="Add a Task" aria-label="Add Task">
+                <button class="btn newTaskAdder" aria-label="Create New List">+</button>
+            </form>
+        </div>
+        <div class="deleteTasks">
+            <button class="btn delete" data-clear-complete-tasks-button>Clear Completed Tasks</button>
+            <button class="btn delete" data-delete-list-button>Delete List</button>
+        </div>
+    </div>
+    </div>
+    </div>
+    <template id="task-template">
+        <div class="task">
+            <input type="checkbox">
+            <label>
+            <span class="customCheckbox"></span></label>
+        </div>
+    </template>
+</body>
+
+</html>
